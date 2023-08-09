@@ -11,7 +11,7 @@ const env = import.meta.env.MODE || 'development';
 // 根据开发环境配置baseurl
 const API_HOST = proxy[env].API;
 // 超时时间
-const TIMEOUT = 5000;
+const TIMEOUT = 60000;
 const config = {
   baseURL: API_HOST,
   timeout: TIMEOUT,

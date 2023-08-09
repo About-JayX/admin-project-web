@@ -10,30 +10,42 @@ import {
   SubmitContext,
   FormRule,
 } from 'tdesign-react';
-import { LockOnIcon, UserIcon, MailIcon, BrowseOffIcon, BrowseIcon } from 'tdesign-icons-react';
+import { LockOnIcon, UserIcon, BrowseOffIcon, BrowseIcon } from 'tdesign-icons-react';
 import useCountdown from '../../hooks/useCountDown';
 import { myRules } from './interface';
 import Style from './index.module.less';
+import { verifyCode } from '@/api/user';
 
 const { FormItem } = Form;
 
 export type ERegisterType = 'phone' | 'email';
 
 export default function Register() {
+  //  是否显示密码
   const [showPsw, toggleShowPsw] = useState(false);
+  // 计时器
   const { countdown, setupCountdown } = useCountdown(60);
+  // form表单对象
   const formRef = useRef<FormInstanceFunctions>();
-
-  const onSubmit = (e: SubmitContext) => {
+  // 注册函数
+  const onSubmit = async (e: SubmitContext) => {
     if (e.validateResult === true) {
       const { checked } = formRef.current?.getFieldsValue?.(['checked']) as { checked: boolean };
       if (!checked) {
         MessagePlugin.error('请同意 TDesign 服务协议和 TDesign 隐私声明');
         return;
       }
-      MessagePlugin.success('注册成功');
+      // 测试axios封装   ---->  local connent success
+      const res = await verifyCode({ email: formRef.current?.getFieldValue('email') });
+
+      console.log(res, 'res__');
+
+      // 注册逻辑
+
+      // MessagePlugin.success('注册成功');
     }
   };
+  // 集中处理表单验证
   const myRules: myRules<FormRule[]> = {
     email: [
       { required: true, message: '邮箱为必填项', type: 'error' },

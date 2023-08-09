@@ -5,10 +5,6 @@ import { IRouter } from '../index';
 const result: IRouter[] = [
   {
     path: '/result',
-    meta: {
-      title: '结果页',
-      Icon: CheckCircleIcon,
-    },
     children: [
       {
         path: 'success',
