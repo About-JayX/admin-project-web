@@ -133,7 +133,10 @@ const globalSlice = createSlice({
   extraReducers: () => {},
 });
 
-export const selectGlobal = (state: RootState) => state.global;
+export const selectGlobal = (state: RootState) => {
+  console.log(state);
+  return state.global;
+};
 
 export const {
   toggleMenu,

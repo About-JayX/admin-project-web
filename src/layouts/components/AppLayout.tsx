@@ -9,6 +9,7 @@ import Content from './AppRouter';
 
 import Style from './AppLayout.module.less';
 
+// memo   ------>   props修改时才会重新渲染
 const SideLayout = React.memo(() => (
   <Layout className={classnames(Style.sidePanel, 'narrow-scrollbar')}>
     <Menu showLogo showOperation />

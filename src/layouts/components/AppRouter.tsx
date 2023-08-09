@@ -18,18 +18,19 @@ type TRenderRoutes = (routes: IRouter[], parentPath?: string, breadcrumbs?: stri
 const renderRoutes: TRenderRoutes = (routes, parentPath = '', breadcrumb = []) =>
   routes.map((route, index: number) => {
     const { Component, children, redirect, meta } = route;
+    // 获取当前路径
     const currentPath = resolve(parentPath, route.path);
+    // 面包屑导航
     let currentBreadcrumb = breadcrumb;
 
     if (meta?.title) {
       currentBreadcrumb = currentBreadcrumb.concat([meta?.title]);
     }
-
+    // 重定向
     if (redirect) {
-      // 重定向
       return <Route key={index} path={currentPath} element={<Navigate to={redirect} replace />} />;
     }
-
+    // 是否存在路由组件   ----> 配置路由菜单
     if (Component) {
       // 有路由菜单
       return (
