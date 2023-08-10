@@ -48,7 +48,7 @@ const renderRoutes: TRenderRoutes = (routes, parentPath = '', breadcrumb = []) =
     // 无路由菜单
     return children ? renderRoutes(children, currentPath, currentBreadcrumb) : null;
   });
-
+// renderRoutes 渲染路由菜单方法
 const AppRouter = () => (
   <Content>
     <Suspense

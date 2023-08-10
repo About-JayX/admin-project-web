@@ -13,6 +13,7 @@ const otherRoutes: IRouter[] = [
   {
     path: '*',
     Component: lazy(() => import('pages/Result/404')),
+    isFullPage: true,
   },
 ];
 

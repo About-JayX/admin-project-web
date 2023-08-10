@@ -9,7 +9,6 @@ import Style from './index.module.less';
 
 export default memo(() => {
   const globalState = useAppSelector(selectGlobal);
-  console.log(globalState, 'dd');
 
   const dispatch = useAppDispatch();
 

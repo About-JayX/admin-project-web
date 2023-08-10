@@ -134,7 +134,6 @@ const globalSlice = createSlice({
 });
 
 export const selectGlobal = (state: RootState) => {
-  console.log(state);
   return state.global;
 };
 
