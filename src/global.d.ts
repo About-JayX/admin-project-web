@@ -51,3 +51,12 @@ declare interface ImportMeta {
     MODE: 'development' | 'test' | 'release' | 'mock' | 'site';
   };
 }
+
+/// <reference types="vite/client" />
+
+interface Window {
+  ethereum: any;
+  web3: any;
+}
+
+declare let ethereum: Window.ethereum;

@@ -6,6 +6,7 @@ import user from './user';
 import listBase from './list/base';
 import listSelect from './list/select';
 import listCard from './list/card';
+import stakeLp from './stakeLP/stakeLp';
 // 将多个 reducer 合并成一个根 reducer
 const reducer = combineReducers({
   global,
@@ -13,12 +14,13 @@ const reducer = combineReducers({
   listBase,
   listSelect,
   listCard,
+  stakeLp,
 });
-// 合并 Reducer
+// 配置和创建 Redux store，包括中间件、异步 action 处理、性能优化
 export const store = configureStore({
   reducer,
 });
-// 配置和创建 Redux store，包括中间件、异步 action 处理、性能优化
+
 export type RootState = ReturnType<typeof store.getState>;
 // 分发函数的类型
 export type AppDispatch = typeof store.dispatch;

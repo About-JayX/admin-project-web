@@ -15,6 +15,13 @@ const bot: IRouter[] = [
           title: '机器人列表',
         },
       },
+      {
+        path: '/pl',
+        Component: lazy(() => import('pages/stakeLP')),
+        meta: {
+          title: '合约测试',
+        },
+      },
     ],
   },
 ];
